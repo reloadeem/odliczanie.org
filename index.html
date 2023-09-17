@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>odliczanie.org</title>
     <meta name="title" content="odliczanie.org">
-    <meta name="description" content="Odliczamy wspólnie do różnych wydarzeń 🗿">
+    <meta name="description" content="Odliczamy do różnych wydarzeń 🗿">
 
     
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://odliczanie.org">
     <meta property="og:title" content="odliczanie.org">
-    <meta property="og:description" content="Odliczamy wspólnie do różnych wydarzeń 🗿">
+    <meta property="og:description" content="Odliczamy do różnych wydarzeń 🗿">
 
     
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://odliczanie.org">
     <meta property="twitter:title" content="odliczanie.org">
-    <meta property="twitter:description" content="Odliczamy wspólnie do różnych wydarzeń 🗿">
+    <meta property="twitter:description" content="Odliczamy do różnych wydarzeń 🗿">
     <style>
 
         
@@ -186,13 +186,23 @@
             text-align: center;
         }
 
+        #bgAudio {
+            display: none;
+        }
         
     </style>
+    <audio autoplay id="bgAudio">
+  <source src="muzyczka.mp3" type="audio/mpeg">
+</audio>
+<script>
+  var audio = document.getElementById("bgAudio");
+  audio.volume = 0.3;
+</script>
 </head>
 <body>
     <div>
     <h1>odliczanie.org</h1>
-    <p>Odliczaj wspólnie z innymi użytkownikami 🗿</p>
+    <p>Odliczamy do różnych wydarzeń 🗿</p>
      <br><br>
 </div>
     <div class="countdown-container">
