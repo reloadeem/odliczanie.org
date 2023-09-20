@@ -77,7 +77,7 @@
             const music = document.getElementById('music').value;
             const theme = document.getElementById('theme').value;
 
-            const url = `https://bd.odliczanie.org/create.php?name=${name}&time=${time}&createdby=${createdBy}&emote=${emotka}&music=${music}&theme=${theme}`;
+            const url = `http://bd.odliczanie.org/create.php?name=${name}&time=${time}&createdby=${createdBy}&emote=${emotka}&music=${music}&theme=${theme}`;
 
             fetch(url)
                 .then(response => response.json())
