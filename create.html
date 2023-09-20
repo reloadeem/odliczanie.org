@@ -79,14 +79,18 @@
 
             const url = `http://bd.odliczanie.org/create.php?name=${name}&time=${time}&createdby=${createdBy}&emote=${emotka}&music=${music}&theme=${theme}`;
 
-            fetch(url)
+            fetch(url{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        })
                 .then(response => response.json())
                 .then(data => {
                     if (data.ID) {
                         const resultDiv = document.getElementById('result');
                         resultDiv.innerHTML = `Stworzono: <a href="https://odliczanie.org/view?id=${data.ID}" target="_blank">https://odliczanie.org/view?id=${data.ID}</a>`;
                     } else {
-                        alert('Wystąpił błąd podczas tworzenia');
+                        alert(`Wystąpił błąd podczas tworzenia/Stworzono ale nie uzyskano wiecej informacji: ID ${data.ID}`);
                     }
                 })
                 .catch(error => {
