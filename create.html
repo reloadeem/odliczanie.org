@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularz Odliczania</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        input[type="text"],
+        input[type="button"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            background-color: #333;
+            color: #fff;
+        }
+
+        input[type="button"] {
+            cursor: pointer;
+            background-color: #007bff;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Formularz Odliczania</h2>
+        <form id="countdownForm">
+            <label for="name">Nazwa:</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="time">Czas do którego ma być odliczane:</label>
+            <input type="text" id="time" name="time" required><br>
+
+            <label for="createdBy">Stworzony przez:</label>
+            <input type="text" id="createdBy" name="createdBy" required><br>
+
+            <label for="emote">Emotka:</label>
+            <input type="text" id="emote" name="emote"><br>
+
+            <label for="music">Utwór w tle:</label>
+            <input type="text" id="music" name="music"><br>
+
+            <label for="theme">Tło:</label>
+            <input type="text" id="theme" name="theme"><br>
+
+            <input type="button" value="Stwórz" onclick="createCountdown()">
+        </form>
+<p>
+  Informacja - Muzyka w tle oraz tło aktywuje się 24h po dotacji za min. 5PLN. Donate: https://tipply.pl/u/odliczanieorg
+      </p>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function createCountdown() {
+            const name = document.getElementById('name').value;
+            const time = document.getElementById('time').value;
+            const createdBy = document.getElementById('createdBy').value;
+            const emotka = document.getElementById('emote').value;
+            const music = document.getElementById('music').value;
+            const theme = document.getElementById('theme').value;
+
+            const url = `https://bd.odliczanie.org/create.php?name=${name}&time=${time}&createdby=${createdBy}&emote=${emotka}&music=${music}&theme=${theme}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ID) {
+                        const resultDiv = document.getElementById('result');
+                        resultDiv.innerHTML = `Stworzono: <a href="https://odliczanie.org/view?id=${data.ID}" target="_blank">https://odliczanie.org/view?id=${data.ID}</a>`;
+                    } else {
+                        alert('Wystąpił błąd podczas tworzenia');
+                    }
+                })
+                .catch(error => {
+                    console.error('Wystąpił błąd:', error);
+                    alert('Wystąpił błąd podczas tworzenia');
+                });
+        }
+    </script>
+</body>
+</html>
