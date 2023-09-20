@@ -1,1 +1,91 @@
-<p> Strona jest przygotowywana </p>
+<title>Odliczanie.org</title>
+<script>
+  // Pobierz ID z parametru URL
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get("id");
+
+// Pobierz dane z pliku JSON
+fetch(`http://bd.odliczanie.org/${id}/${id}.json`)
+  .then((response) => response.json())
+  .then((data) => {
+    // Zmienne z danymi z pliku JSON
+    const name = data.name;
+    const createdBy = data.createdby;
+    const emote = data.emote;
+    const isVIP = data.isVIP;
+    const time = data.time;
+    const music = data.music;
+    const background = data.background;
+
+    // Ustaw tło i czcionkę
+    if (!isVIP) {
+      document.body.style.backgroundColor = "#000";
+      document.body.style.fontFamily = "Arial, sans-serif";
+    } else {
+      document.body.style.backgroundColor = ""; // Wartość domyślna
+      document.body.style.fontFamily = ""; // Wartość domyślna
+    }
+
+    // Ustaw tło strony (jeśli isVIP jest true)
+    if (isVIP && background) {
+      document.body.style.backgroundImage = `url(${background})`;
+      document.body.style.backgroundSize = "cover";
+      document.body.style.backgroundRepeat = "no-repeat";
+    }
+
+    // Ustaw treść h1 i p
+    const h1 = document.createElement("h1");
+    const img = document.createElement("img");
+    img.src = emote;
+    img.width = 24;
+    img.height = 24;
+    h1.innerHTML = `${name} `;
+    h1.appendChild(img);
+    document.body.appendChild(h1);
+
+    const p = document.createElement("p");
+    p.innerHTML = `Stworzony przez ${createdBy}`;
+    document.body.appendChild(p);
+
+    // Utwórz licznik odliczania
+    const countdownDiv = document.createElement("div");
+    const countdown = document.createElement("span");
+    countdownDiv.appendChild(countdown);
+    document.body.appendChild(countdownDiv);
+
+    const countdownInterval = setInterval(() => {
+      const currentTime = new Date().getTime();
+      const targetTime = new Date(time).getTime();
+      const remainingTime = targetTime - currentTime;
+
+      if (remainingTime <= 0) {
+        clearInterval(countdownInterval);
+        countdown.innerHTML = "Czas minął!";
+        return;
+      }
+
+      const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor(
+        (remainingTime % (1000 * 60 * 60)) / (1000 * 60)
+      );
+      const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+
+    // Dodaj muzykę w tle (jeśli nie jest VIP)
+    if (!isVIP && music) {
+      const audio = new Audio(music);
+      audio.loop = true;
+      audio.play();
+    }
+  })
+  .catch((error) => {
+    console.error("Wystąpił błąd:", error);
+    // Obsłuż błąd ładowania danych
+  });
+
+</script>
