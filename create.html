@@ -69,35 +69,47 @@
     </div>
 
     <script>
-        function createCountdown() {
-            const name = document.getElementById('name').value;
-            const time = document.getElementById('time').value;
-            const createdBy = document.getElementById('createdBy').value;
-            const emotka = document.getElementById('emote').value;
-            const music = document.getElementById('music').value;
-            const theme = document.getElementById('theme').value;
+function createCountdown() {
+    const name = document.getElementById('name').value;
+    const time = document.getElementById('time').value;
+    const createdBy = document.getElementById('createdBy').value;
+    const emotka = document.getElementById('emote').value;
+    const music = document.getElementById('music').value;
+    const theme = document.getElementById('theme').value;
 
-            const url = `http://bd.odliczanie.org/create.php?name=${name}&time=${time}&createdby=${createdBy}&emote=${emotka}&music=${music}&theme=${theme}`;
+    const url = 'http://bd.odliczanie.org/create.php';
 
-            fetch(url{
+    const data = {
+        name: name,
+        time: time,
+        createdby: createdBy,
+        emote: emotka,
+        music: music,
+        theme: theme
+    };
+
+    fetch(url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
-        })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.ID) {
-                        const resultDiv = document.getElementById('result');
-                        resultDiv.innerHTML = `Stworzono: <a href="https://odliczanie.org/view?id=${data.ID}" target="_blank">https://odliczanie.org/view?id=${data.ID}</a>`;
-                    } else {
-                        alert(`Wystąpił błąd podczas tworzenia/Stworzono ale nie uzyskano wiecej informacji: ID ${data.ID}`);
-                    }
-                })
-                .catch(error => {
-                    console.error('Wystąpił błąd:', error);
-                    alert('Wystąpił błąd podczas tworzenia');
-                });
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.ID) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `Stworzono: <a href="https://odliczanie.org/view?id=${data.ID}" target="_blank">https://odliczanie.org/view?id=${data.ID}</a>`;
+        } else {
+            alert(`Wystąpił błąd podczas tworzenia/Stworzono ale nie uzyskano wiecej informacji: ID ${data.ID}`);
         }
+    })
+    .catch(error => {
+        console.error('Wystąpił błąd:', error);
+        alert('Wystąpił błąd podczas tworzenia');
+    });
+}
+
     </script>
 </body>
 </html>
