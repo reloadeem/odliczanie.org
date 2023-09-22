@@ -63,7 +63,7 @@
             <input type="button" value="Stwórz" onclick="generateLink()">
         </form>
         <p>
-          Informacja - Muzyka w tle oraz tło aktywuje się 24h po dotacji za min. 5PLN. Donate: https://tipply.pl/u/odliczanieorg
+          Donate: https://tipply.pl/u/odliczanieorg
         </p>
         <div id="result"></div>
     </div>
@@ -77,7 +77,7 @@
             const music = document.getElementById('music').value;
             const theme = document.getElementById('theme').value;
 
-            const url = `https://odliczanie.org/view?name=${name}&time=${time}&createdby=${createdBy}&emote=${emote}&music=${music}&theme=${theme}`;
+            const url = `https://odliczanie.org/view?name=${name}&time=${time}&createdBy=${createdBy}&emote=${emote}&music=${music}&theme=${theme}`;
 
             const resultDiv = document.getElementById('result');
             resultDiv.innerHTML = `Wygenerowany link: <a href="${url}" target="_blank">${url}</a>`;
