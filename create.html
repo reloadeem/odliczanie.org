@@ -60,56 +60,28 @@
             <label for="theme">Tło:</label>
             <input type="text" id="theme" name="theme"><br>
 
-            <input type="button" value="Stwórz" onclick="createCountdown()">
+            <input type="button" value="Stwórz" onclick="generateLink()">
         </form>
-<p>
-  Informacja - Muzyka w tle oraz tło aktywuje się 24h po dotacji za min. 5PLN. Donate: https://tipply.pl/u/odliczanieorg
-      </p>
+        <p>
+          Informacja - Muzyka w tle oraz tło aktywuje się 24h po dotacji za min. 5PLN. Donate: https://tipply.pl/u/odliczanieorg
+        </p>
         <div id="result"></div>
     </div>
 
     <script>
-function createCountdown() {
-    const name = document.getElementById('name').value;
-    const time = document.getElementById('time').value;
-    const createdBy = document.getElementById('createdBy').value;
-    const emotka = document.getElementById('emote').value;
-    const music = document.getElementById('music').value;
-    const theme = document.getElementById('theme').value;
+        function generateLink() {
+            const name = document.getElementById('name').value;
+            const time = document.getElementById('time').value;
+            const createdBy = document.getElementById('createdBy').value;
+            const emote = document.getElementById('emote').value;
+            const music = document.getElementById('music').value;
+            const theme = document.getElementById('theme').value;
 
-    const url = 'http://bd.odliczanie.org/create.php';
+            const url = `https://odliczanie.org/view?name=${name}&time=${time}&createdby=${createdBy}&emote=${emote}&music=${music}&theme=${theme}`;
 
-    const data = {
-        name: name,
-        time: time,
-        createdby: createdBy,
-        emote: emotka,
-        music: music,
-        theme: theme
-    };
-
-    fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.ID) {
             const resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = `Stworzono: <a href="https://odliczanie.org/view?id=${data.ID}" target="_blank">https://odliczanie.org/view?id=${data.ID}</a>`;
-        } else {
-            alert(`Wystąpił błąd podczas tworzenia/Stworzono ale nie uzyskano wiecej informacji: ID ${data.ID}`);
+            resultDiv.innerHTML = `Wygenerowany link: <a href="${url}" target="_blank">${url}</a>`;
         }
-    })
-    .catch(error => {
-        console.error('Wystąpił błąd:', error);
-        alert('Wystąpił błąd podczas tworzenia');
-    });
-}
-
     </script>
 </body>
 </html>
