@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Odliczanie.org</title>
     <style>
         body {
             background-color: #000;
             color: #fff;
             font-family: Arial, sans-serif;
             text-align: center;
+            opacity: 0.3;
         }
 .mini {
 color: grey;
@@ -28,22 +28,23 @@ font-size: 14px;
         const isVIP = urlParams.get("isVIP");
         const time = urlParams.get("time");
         const music = urlParams.get("music");
-        const background = urlParams.get("background");
+        const theme = urlParams.get("theme");
+        
 
         // Ustaw tło i czcionkę
         if (!isVIP) {
-            document.body.style.backgroundColor = "#000";
             document.body.style.fontFamily = "Arial, sans-serif";
         }
 
         // Ustaw tło strony (jeśli isVIP jest true)
-        if (isVIP && background) {
-            document.body.style.backgroundImage = `url(${background})`;
+        if (theme) {
+            document.body.style.backgroundImage = `url(${theme})`;
             document.body.style.backgroundSize = "cover";
             document.body.style.backgroundRepeat = "no-repeat";
         }
 
         // Ustaw treść h1 i p
+        const title = document.createElement("title");
         const h1 = document.createElement("h1");
         const img = document.createElement("img");
         img.src = emote;
@@ -52,6 +53,7 @@ font-size: 14px;
         h1.innerHTML = `${name} `;
         h1.appendChild(img);
         document.body.appendChild(h1);
+        title.innerHTML = `${name} - odliczanie.org`
 
         const p = document.createElement("p");
         p.innerHTML = `Stworzony przez ${createdBy}`;
