@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            background-color: #000;
+            background-color: rgba(0, 0, 0, 0.7); /* 30% ciemniejsze tło */
             color: #fff;
             font-family: Arial, sans-serif;
             text-align: center;
-            opacity: 0.9;
         }
-.mini {
-color: grey;
-font-family: monospace, 'Cascadia Code';
-font-size: 14px;
-}
+
+        .mini {
+            color: grey;
+            font-family: monospace, 'Cascadia Code';
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
@@ -29,7 +29,6 @@ font-size: 14px;
         const time = urlParams.get("time");
         const music = urlParams.get("music");
         const theme = urlParams.get("theme");
-        
 
         // Ustaw tło i czcionkę
         if (!isVIP) {
@@ -45,6 +44,8 @@ font-size: 14px;
 
         // Ustaw treść h1 i p
         const title = document.createElement("title");
+        title.innerHTML = `${name} - odliczanie.org`; // Ustaw tytuł strony
+
         const h1 = document.createElement("h1");
         const img = document.createElement("img");
         img.src = emote;
@@ -53,7 +54,6 @@ font-size: 14px;
         h1.innerHTML = `${name} `;
         h1.appendChild(img);
         document.body.appendChild(h1);
-        title.innerHTML = `${name} - odliczanie.org`
 
         const p = document.createElement("p");
         p.innerHTML = `Stworzony przez ${createdBy}`;
@@ -95,8 +95,8 @@ font-size: 14px;
             audio.play();
         }
     </script>
-<br>
-<p class="mini"> Zegar wygenerowany przez projekt open-source odliczanie.org ;) <a href="https://odliczanie.org"> (LINK) </a> <br>
-<a href="https://tipply.pl/u/odliczanieorg"> Wsparcie (LINK) </a> </p>
+    <br>
+    <p class="mini">Zegar wygenerowany przez projekt open-source odliczanie.org ;) <a href="https://odliczanie.org"> (LINK) </a> <br>
+    <a href="https://tipply.pl/u/odliczanieorg"> Wsparcie (LINK) </a></p>
 </body>
 </html>
