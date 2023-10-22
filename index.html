@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>odliczanie.org</title>
     <meta name="title" content="odliczanie.org">
-    <meta name="description" content="Odliczamy do różnych wydarzeń 🗿">
+    <meta name="description" content="Odliczamy do różnych wydarzeń 🧛🏿">
 
     
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://odliczanie.org">
     <meta property="og:title" content="odliczanie.org">
-    <meta property="og:description" content="Odliczamy do różnych wydarzeń 🗿">
+    <meta property="og:description" content="Odliczamy do różnych wydarzeń 🧛🏿">
 
     
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://odliczanie.org">
     <meta property="twitter:title" content="odliczanie.org">
-    <meta property="twitter:description" content="Odliczamy do różnych wydarzeń 🗿">
+    <meta property="twitter:description" content="Odliczamy do różnych wydarzeń 🧛🏿">
     <style>
 
         
@@ -66,6 +66,7 @@
 
         body {
             background-color: black;
+            background-image: url('https://i.pinimg.com/236x/05/47/3b/05473b41c38d6a98fd48e6c8279c83c8.jpg');
             color: white;
             font-family: Arial, sans-serif;
             margin: 0;
@@ -197,17 +198,13 @@
         
     </style>
     <audio autoplay id="bgAudio">
-  <source src="muzyczka.mp3" type="audio/mpeg">
+  <source src="demon.mp3" type="audio/mpeg">
 </audio>
-<script>
-  var audio = document.getElementById("bgAudio");
-  audio.volume = 0.3;
-</script>
 </head>
 <body>
     <div>
     <h1>odliczanie.org</h1>
-    <p>Odliczamy do różnych wydarzeń ;) </p>
+    <p>Odliczamy do różnych wydarzeń 🧛🏿 </p>
      <br><br>
 </div>
     <div class="countdown-container">
@@ -219,12 +216,12 @@
             <button class="btn" onclick="showCountdown(4)"><img src="https://cdn3.emoji.gg/emojis/9362-krabscool.gif" width="22px" height="22px"> Wakacje 2024</button>
             <button class="btn" onclick="showCountdown(5)"><img src="https://cdn3.emoji.gg/emojis/3469-pepeparty.gif" width="20px" height="20px"> Najbliższy długi weekend</button>
             <button class="btn" onclick="showCountdown(6)"><img src="https://cdn3.emoji.gg/emojis/6416-partycat.gif" width="20px" height="20px"> Najbliższy dzień wolny</button> <br>
-            <button class="btn" onclick="showCountdown(7)"><img src="https://cdn3.emoji.gg/emojis/9685_fairy_standing.png" width="20px" height="20px"> Dzień Kobiet <p class="new">NEW</p></button>
-            <button class="btn" onclick="showCountdown(8)"><img src="https://cdn3.emoji.gg/emojis/3581-peepopoland.gif" width="20px" height="20px"> Św. Konstytucji 3 Maja <p class="new">NEW</p></button> <br>
-            <button class="btn" onclick="showCountdown(9)"><img src="https://cdn3.emoji.gg/emojis/6156-polandflag.gif" width="20px" height="20px"> Św. Niepodległości <p class="new">NEW</p></button> <br>
+            <button class="btn" onclick="showCountdown(7)"><img src="https://cdn3.emoji.gg/emojis/9685_fairy_standing.png" width="20px" height="20px"> Dzień Kobiet </button>
+            <button class="btn" onclick="showCountdown(8)"><img src="https://cdn3.emoji.gg/emojis/3581-peepopoland.gif" width="20px" height="20px"> Św. Konstytucji 3 Maja </button> <br>
+            <button class="btn" onclick="showCountdown(9)"><img src="https://cdn3.emoji.gg/emojis/6156-polandflag.gif" width="20px" height="20px"> Św. Niepodległości </button> <br>
+            <button class="btn" onclick="showCountdown(10)"><img src="https://cdn.iconscout.com/icon/free/png-256/free-shopping-cart-442-1151214.png" width="20px" height="20px"> Najbliższa niedziela handlowa <p class="new">NEW</p></button> <br>
             <a id="donate-link" href="https://tipply.pl/u/odliczanieorg" target="_blank"><img src="https://cdn3.emoji.gg/emojis/7530-pepecash.png" width="24px" height="24px"> Donate <img src="https://cdn3.emoji.gg/emojis/7530-pepecash.png" width="24px" height="24px"></a>
-<a id="donate-link" href="https://odliczanie.org/create"> <img src="https://cdn3.emoji.gg/emojis/7581_plus.png" width="22px" height="22px"> Stwórz własne odliczanie </a>
-<a id="donate-link" href="https://odliczanie.org/beta"> 💼 Beta (Dostęp Premium)</a>
+<a id="donate-link" href="https://odliczanie.org/create"> <img src="https://cdn3.emoji.gg/emojis/7581_plus.png" width="22px" height="22px"> Stwórz własny zegar </a>
         </div>
         
         <div class="countdown-item active" id="countdown-0">
@@ -267,6 +264,10 @@
             <div class="countdown-title">Św. Niepodległości</div>
             <div class="countdown-timer" id="countdown-timer-9"></div>
         </div>
+                <div class="countdown-item" id="countdown-10">
+            <div class="countdown-title">Najbliższa niedziela handlowa</div>
+            <div class="countdown-timer" id="countdown-timer-10"></div>
+        </div>
     </div>
     
     
@@ -288,6 +289,7 @@
         { name: "Dzień Kobiet", date: "2024-03-08T00:00:00" },
         { name: "Św. Konstytucji 3 Maja", date: "2024-05-03T00:00:00" },
         { name: "Św. Niepodległości", date: "2023-11-11T00:00:00" },
+        { name: "Najbliższa niedziela handlowa", date: "2023-12-17T00:00:00" },
     ];
 
     function updateCountdowns() {
@@ -378,7 +380,7 @@
             retina_detect: true,
         });
     </script>
-    <footer> <p style="color: grey;"> API: 1.7.2 | BETA </p>
+    <footer> <p style="color: grey;"> v1.7.3 </p>
         <p>© 2023 roax.space - All rights reserved.</p>
     </footer>
 </body>
