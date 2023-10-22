@@ -187,9 +187,42 @@
             text-align: center;
         }
 
-        #bgAudio {
-            display: none;
-        }
+/* Style for the audio player container */
+.audio-player {
+    background-color: #000; /* Black background color */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px;
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Style for the audio player controls */
+.audio-player audio {
+    width: 100%;
+    outline: none;
+}
+
+/* Style for the audio player controls when hovering */
+.audio-player audio:hover {
+    cursor: pointer;
+}
+
+/* Style for the audio player controls when active */
+.audio-player audio:focus {
+    border: 2px solid #FFF; /* White border when active */
+}
+
+/* Style for the audio player progress bar */
+.audio-player audio::-webkit-media-controls-timeline {
+    background: #FFF; /* White progress bar */
+}
+
+/* Style for the audio player volume control */
+.audio-player audio::-webkit-media-controls-volume-slider {
+    background: #FFF; /* White volume control */
+}
+
 
         .new {
             color: red;
@@ -197,10 +230,12 @@
         }
         
     </style>
-    <audio autoplay controls loop id="bgAudio">
+    <div class="audio-player">
+    <audio autoplay controls loop>
   <source src="demon.mp3" type="audio/mpeg">
         <p>If you can read this, your browser does not support the audio element.</p>
 </audio>
+    </div>
 </head>
 <body>
     <div>
@@ -216,9 +251,9 @@
             <button class="btn" onclick="showCountdown(3)"><img src="https://cdn3.emoji.gg/emojis/1320-pepe-noted.gif" width="22px" height="22px">Matury 2024</button>
             <button class="btn" onclick="showCountdown(4)"><img src="https://cdn3.emoji.gg/emojis/9362-krabscool.gif" width="22px" height="22px"> Wakacje 2024</button>
             <button class="btn" onclick="showCountdown(5)"><img src="https://cdn3.emoji.gg/emojis/3469-pepeparty.gif" width="20px" height="20px"> Najbliższy długi weekend</button>
-            <button class="btn" onclick="showCountdown(6)"><img src="https://cdn3.emoji.gg/emojis/6416-partycat.gif" width="20px" height="20px"> Najbliższy dzień wolny</button> <br>
+            <button class="btn" onclick="showCountdown(6)"><img src="https://cdn3.emoji.gg/emojis/6416-partycat.gif" width="20px" height="20px"> Najbliższy dzień wolny</button> 
             <button class="btn" onclick="showCountdown(7)"><img src="https://cdn3.emoji.gg/emojis/9685_fairy_standing.png" width="20px" height="20px"> Dzień Kobiet </button>
-            <button class="btn" onclick="showCountdown(8)"><img src="https://cdn3.emoji.gg/emojis/3581-peepopoland.gif" width="20px" height="20px"> Św. Konstytucji 3 Maja </button> <br>
+            <button class="btn" onclick="showCountdown(8)"><img src="https://cdn3.emoji.gg/emojis/3581-peepopoland.gif" width="20px" height="20px"> Św. Konstytucji 3 Maja </button> 
             <button class="btn" onclick="showCountdown(9)"><img src="https://cdn3.emoji.gg/emojis/6156-polandflag.gif" width="20px" height="20px"> Św. Niepodległości </button> <br>
             <button class="btn" onclick="showCountdown(10)"><img src="https://cdn.iconscout.com/icon/free/png-256/free-shopping-cart-442-1151214.png" width="20px" height="20px"> Najbliższa niedziela handlowa <p class="new">NEW</p></button> <br>
             <a id="donate-link" href="https://tipply.pl/u/odliczanieorg" target="_blank"><img src="https://cdn3.emoji.gg/emojis/7530-pepecash.png" width="24px" height="24px"> Donate <img src="https://cdn3.emoji.gg/emojis/7530-pepecash.png" width="24px" height="24px"></a>
