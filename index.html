@@ -198,7 +198,6 @@
     padding: 10px;
     width: 300px;
     margin: 0 auto;
-    text-align: center;
 }
 
 /* Style for the audio player controls */
@@ -214,17 +213,17 @@
 
 /* Style for the audio player controls when active */
 .audio-player audio:focus {
-    border: 2px solid #FFF; /* White border when active */
+    border: 2px solid #000; /* White border when active */
 }
 
 /* Style for the audio player progress bar */
 .audio-player audio::-webkit-media-controls-timeline {
-    background: #FFF; /* White progress bar */
+    background: #000; /* White progress bar */
 }
 
 /* Style for the audio player volume control */
 .audio-player audio::-webkit-media-controls-volume-slider {
-    background: #FFF; /* White volume control */
+    background: #000; /* White volume control */
 }
 
 
@@ -234,12 +233,6 @@
         }
         
     </style>
-    <div class="audio-player">
-    <audio autoplay controls loop>
-  <source src="demon.mp3" type="audio/mpeg">
-        <p>If you can read this, your browser does not support the audio element.</p>
-</audio>
-    </div>
 </head>
 <body>
     <div>
@@ -420,7 +413,12 @@
             retina_detect: true,
         });
     </script>
-    <footer> <p style="color: grey;"> v1.7.3 </p>
+    <footer>     <div class="audio-player">
+    <audio class="audio-player" autoplay controls loop>
+  <source src="demon.mp3" type="audio/mpeg">
+        <p>If you can read this, your browser does not support the audio element.</p>
+</audio>
+    </div> <p style="color: grey;"> v1.7.3 </p>
         <p>© 2023 roax.space - All rights reserved.</p>
     </footer>
 </body>
