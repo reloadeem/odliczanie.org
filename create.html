@@ -47,31 +47,34 @@
 <body>
 
     <div class="container">
+        <p style="color:grey"> Trwa aktualizacja API do nowej wersji.. </p>
+        <br>
         <h2>Stwórz włany zegar</h2>
-        <p> Funkcja w wersji beta </p>
+        <br>
+        <br>
         <form id="countdownForm">
             <label for="name">Nazwa:</label>
-            <input type="text" id="name" name="name" required><br>
+            <input type="text" id="name" name="name" required> <br>
 
-            <label for="time">Czas do którego ma być odliczane (przyklad: 2023-12-24T00:00:00):</label>
-            <input type="text" id="time" name="time" required><br>
+            <label for="time">Czas do którego ma być odliczane <p style="color:grey"> (przyklad: 2023-12-24T00:00:00) </p> :</label>
+            <input type="text" id="time" name="time" required> <br>
 
             <label for="createdBy">Stworzony przez:</label>
-            <input type="text" id="createdBy" name="createdBy" required><br>
+            <input type="text" id="createdBy" name="createdBy" required> <br>
 
             <label for="emote">Emotka:</label>
-            <input type="text" id="emote" name="emote"><br>
+            <input type="text" id="emote" name="emote" required> <br>
 
             <label for="music">Utwór w tle:</label>
-            <input type="text" id="music" name="music"><br>
+            <input type="text" id="music" name="music"> <br>
 
             <label for="theme">Tło:</label>
-            <input type="text" id="theme" name="theme"><br>
+            <input type="text" id="theme" name="theme" required> <br>
 
             <input type="button" value="Stwórz" onclick="generateLink()">
         </form>
         <p>
-          Donate: https://tipply.pl/u/odliczanieorg
+          Donate - klinij <a href="https://tipply.pl/u/odliczanieorg"> tutaj </a>
         </p>
         <div id="result"></div>
     </div>
